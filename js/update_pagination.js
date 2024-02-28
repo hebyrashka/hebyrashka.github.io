@@ -25,7 +25,7 @@ function update_pagination() {
         total_items = Array.from(pagination_data.result);
 
         // Считаем общее количество страниц
-        var how_pages = Math.floor(total_items.length / 50);
+        var how_pages = Math.ceil(total_items.length / 50);
 
         for (let i = 0; i < how_pages; i++) {
             pagination.push(i + 1);
