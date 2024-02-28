@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestTaskValantis</title>
+
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+<body>
+    <div class="product">
+        <table class="product-table">
+            <tr>
+              <th>ID</th>
+              <th>Название</th>
+              <th>Цена</th>
+              <th>Бренд</th>
+            </tr>
+          </table>
+    </div>
+    <div class="pagination">
+
+    </div>
+    <script src="js/md5.min.js"></script>
+    <script src="js/moment.js"></script>
+
+    <script src="js/insert_product.js"></script>
+    <script src="js/get_product.js"></script>
+    <script src="js/update_pagination.js"></script>
+
+    <script>
+
+        var limit = 50;
+
+        var current_page = 0;
+
+        var offset = current_page * limit;
+
+        var timestamp = moment().utcOffset(3).format("YYYYMMDD");
+
+        var token = md5("Valantis" + "_" + timestamp);
+
+
+        get_product(offset, limit, token);
+
+    </script>
+</body>
+</html>
