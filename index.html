@@ -9,6 +9,12 @@
 
 </head>
 <body>
+    <div class="filter">
+        <input class="filter__input" placeholder="Название" type="text">
+        <input class="filter__input" placeholder="Цена" type="number">
+        <input class="filter__input" placeholder="Бренд" type="text">
+        <button class="filter__apply">Применить</button>
+    </div>
     <div class="product">
         <table class="product-table">
             <tr>
@@ -25,9 +31,10 @@
     <script src="js/md5.min.js"></script>
     <script src="js/moment.js"></script>
 
-    <script src="js/insert_product.js"></script>
-    <script src="js/get_product.js"></script>
-    <script src="js/update_pagination.js"></script>
+    <script src="js/filter_event_handler.js"></script>
+    <script src="js/pagination.js"></script>
+    <script src="js/pagination_event_handler.js"></script>
+    <script src="js/product.js"></script>
 
     <script>
 
@@ -35,15 +42,24 @@
 
         var current_page = 0;
 
-        var offset = current_page * limit;
-
         var timestamp = moment().utcOffset(3).format("YYYYMMDD");
 
         var token = md5("Valantis" + "_" + timestamp);
 
+        var filter_product = document.getElementsByClassName("filter__input")[0];
+        var filter_price = document.getElementsByClassName("filter__input")[1];
+        var filter_brand = document.getElementsByClassName("filter__input")[2];
 
-        get_product(offset, limit, token);
+        var filter_apply = document.getElementsByClassName("filter__apply")[0];
 
+        product(current_page, limit);
+
+        filter_apply.onclick = function() {
+            current_page = 0;
+
+            product(current_page, limit);
+        }
+        
     </script>
 </body>
 </html>

@@ -64,9 +64,53 @@ td:nth-child(2){
 
     color: #F9C941;
 }
+.pagination__btn:hover, .pagination__btn--active:hover {
+    cursor: pointer;
+}
+.pagination__btn:not(.pagination__btn--active):hover {
+    background: #56433D;
+
+    color: #F9C941;
+}
 .pagination__btn--basic_navigation {
     width: auto;
 
     padding-left: 5px;
     padding-right: 5px;
+}
+.filter__input {
+    background: none;
+    outline: none;
+    border: none;
+
+    height: 30px;
+
+    padding-left: 10px;
+
+    border: 2px solid #56433D;
+
+    font-weight: bold;
+    color: #56433D;
+}
+.filter__apply {
+    background: none;
+    outline: none;
+    border: none;
+
+    height: 36px;
+
+    padding-top: 1px;
+    padding-bottom: 1px;
+
+    border: 2px solid #56433D;
+
+    font-weight: bold;
+    color: #56433D;
+}
+.filter__apply:hover {
+    background: #56433D;
+
+    color: #F9C941;
+
+    cursor: pointer;
 }
